@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
-import fetch from "node-fetch";
 import dotenv from "dotenv";
+const response = await fetch('https://api.example.com');
+
 
 dotenv.config();
 
