@@ -1,17 +1,24 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-const data = await response.json();
-console.log(data);
 
-
-
+// Load environment variables
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));
+
+// ================== TEST FETCH (optional, async) ==================
+(async () => {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+    const data = await response.json();
+    console.log("Initial test fetch:", data);
+  } catch (err) {
+    console.error("Test fetch failed:", err);
+  }
+})();
 
 // ================== SYSTEM CONFIG ==================
 const SYSTEM_INSTRUCTIONS = `You are Genesis, a helpful and humorous AI assistant. Follow these rules in ALL responses:
@@ -40,6 +47,7 @@ const mockResponses = [
   "I see what you're getting at, Duce! Let me provide some insights on this topic. 🔍💡"
 ];
 
+// ================== HELPER FUNCTIONS ==================
 function checkSpecialResponses(message) {
   const clean = message.toLowerCase();
   const triggers = [
@@ -95,7 +103,7 @@ async function tryModels(message) {
 
 // ================== ROUTES ==================
 
-// Chat
+// Chat Route
 app.post("/api/chat", async (req, res) => {
   const { message } = req.body;
   if (!message) {
@@ -121,12 +129,13 @@ app.post("/api/chat", async (req, res) => {
   res.json({ response: mock });
 });
 
-// Health check
+// Health Check Route
 app.get("/api/health", (req, res) => {
   res.json({ status: "healthy", message: "Hey Duce! All systems go! 🚀✨" });
 });
 
-// ==================================================
-// Vercel handler (no app.listen)
-// ==================================================
-export default app;
+// ================== START SERVER ==================
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Genesis AI server is running on port ${PORT}`);
+});
