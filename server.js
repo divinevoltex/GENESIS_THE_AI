@@ -1,7 +1,10 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-const response = await fetch('https://api.example.com');
+const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+const data = await response.json();
+console.log(data);
+
 
 
 dotenv.config();

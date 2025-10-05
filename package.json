@@ -1,6 +1,7 @@
 {
   "name": "genesis-ai-assistant",
   "version": "1.0.0",
+  "type": "module",
   "description": "AI Assistant with personality that always calls users 'Duce'",
   "main": "server.js",
   "scripts": {
