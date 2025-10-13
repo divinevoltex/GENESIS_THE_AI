@@ -1,27 +1,17 @@
 {
-  "name": "genesis-ai-assistant",
+  "name": "genesis-ai",
   "version": "1.0.0",
   "type": "module",
-  "description": "AI Assistant with personality that always calls users 'Duce'",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "node server.js",
+    "start": "node server.js"
   },
   "dependencies": {
+    "express": "^4.18.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2"
+    "dotenv": "^16.3.1"
   },
-  "devDependencies": {
-    "nodemon": "^3.0.1"
-  },
-  "keywords": [
-    "ai",
-    "assistant",
-    "chatbot",
-    "genesis"
-  ],
-  "author": "Sai Kaarthik",
-  "license": "MIT"
+  "engines": {
+    "node": "18.x"
+  }
 }
