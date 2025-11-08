@@ -7,6 +7,14 @@
     box-sizing: border-box;
 }
 
+@media (max-width: 768px) {
+  /* tablet and mobile styles */
+}
+
+@media (max-width: 480px) {
+  /* small phones */
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -1282,4 +1290,5 @@ input:checked + .slider:before {
     .placeholder-icon {
         font-size: 3rem;
     }
+
 }
