@@ -154,14 +154,15 @@ app.post("/api/chat", async (req, res) => {
     }
 
     // Check if API key is available
-    if (!process.env.OPENROUTER_API_KEY) {
-      console.log("No OpenRouter API key found, using mock response");
-      const mockResponse = getMockResponse();
-      return res.json({ 
-        response: mockResponse,
-        type: "mock"
-      });
-    }
+// Remove or comment the OPENROUTER_API_KEY check section
+// Change this part in server.js:
+
+// Instead of hardcoded API key check, only check environment
+if (!process.env.OPENROUTER_API_KEY) {
+  console.log("No OpenRouter API key found in environment");
+  console.log("Please add OPENROUTER_API_KEY in Render environment variables");
+  // Continue with mock responses
+}
 
     // Try to get response from AI models
     const aiResponse = await tryModels(message);
